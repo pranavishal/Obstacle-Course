@@ -8,14 +8,26 @@ public class Mover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Tutorial();
     }
 
     // Update is called once per frame
     void Update()
     {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
         transform.Translate(xValue, 0, zValue);
+    }
+
+    private void Tutorial()
+    {
+        Debug.Log("Move around with the arrow keys");
+        Debug.Log("You can also use the WASD keys if preferred");
+        Debug.Log("Avoid the blue walls");
     }
 }
