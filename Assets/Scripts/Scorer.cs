@@ -7,7 +7,7 @@ public class Scorer : MonoBehaviour
     [SerializeField] int score = 0;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "Plane")
+        if (collision.gameObject.tag != "Plane" && collision.gameObject.tag != "Hit")
         {
             score++;
             Debug.Log("Your score is now " + score);

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ObjectHit : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        if (this.GetComponent<MeshRenderer>().material.color == Color.yellow)
+        if (other.gameObject.tag == "Player")
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.blue;
-        } else
-        {
-            this.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            if (this.gameObject.tag != "Stop")
+            {
+                this.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                this.gameObject.tag = "Hit";
+            }
+            Destroy(other.gameObject);
         }
+        
         
     }
 }
